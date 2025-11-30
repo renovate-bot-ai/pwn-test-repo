@@ -10,23 +10,23 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: \${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Demo: show branch/ref
+      - name: show branch/ref
         run: |
           echo "=== GITHUB_REF = $GITHUB_REF ==="
           echo "=== GITHUB_HEAD_REF = $GITHUB_HEAD_REF ==="
           ls -la . > repo_list.txt
 
-      - name: Approve PR (via GitHub CLI)
-        run: gh pr review --approve "\${{ github.event.pull_request.url }}"
+      - name: Approve PR
+        run: gh pr review --approve "${{ github.event.pull_request.html_url }}"
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge PR
-        run: gh pr merge --rebase --auto "\${{ github.event.pull_request.url }}"
+        run: gh pr merge --rebase --auto "${{ github.event.pull_request.html_url }}"
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
