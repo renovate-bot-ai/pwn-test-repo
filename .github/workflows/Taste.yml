@@ -1,0 +1,7 @@
+on: pull_request_target
+jobs:
+   just-printing-stuff:
+    runs-on: ubuntu-latest
+    if: ${ { github.actor == 'dependabot[bot]' }}
+    steps:
+      - run: echo ${ { github.event.pull_request.head.ref }}
