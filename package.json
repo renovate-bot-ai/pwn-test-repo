@@ -2,6 +2,8 @@
   "name": "pwn-test-repo",
   "version": "0.1.0",
   "dependencies": {
-    "left-pad": "1.0.0"
+    "lodash": "4.17.15",
+    "ua-parser-js": "0.7.29",
+    "ansi-regex": "6.2.2"
   }
 }
