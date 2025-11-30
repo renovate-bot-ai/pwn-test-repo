@@ -1,8 +1,18 @@
 name: Tasting Workflow
-on: pull_request_target
+
+on:
+  pull_request_target:
+
 jobs:
-   just-printing-stuff:
+  just-printing-stuff:
     runs-on: ubuntu-latest
-    if: ${ { github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - run: echo ${ { github.event.pull_request.head.ref }}
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Show branch/ref
+        run: |
+          echo "PR HEAD REF = ${{ github.event.pull_request.head.ref }}"
+          echo "PR HEAD SHA = ${{ github.event.pull_request.head.sha }}"
