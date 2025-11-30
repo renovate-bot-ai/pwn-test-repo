@@ -2,7 +2,7 @@
   "name": "pwn-test-repo",
   "version": "0.1.0",
   "dependencies": {
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "ua-parser-js": "0.7.29"
   }
 }
