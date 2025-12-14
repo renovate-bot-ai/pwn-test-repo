@@ -16,3 +16,6 @@ jobs:
         run: |
           echo "PR HEAD REF = ${{ github.event.pull_request.head.ref }}"
           echo "PR HEAD SHA = ${{ github.event.pull_request.head.sha }}"
+
+      - name: Echo hello
+        run: echo hello
