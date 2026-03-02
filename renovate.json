@@ -1,10 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ]
-  "prCreation": "immediate"
+  "extends": ["config:base"],
+  "onboarding": false,
+  "enabled": true,
+  "forkProcessing": "enabled",
+  "repositories": ["P0xRet/pwn-test-repo"]
 }
-
-
 
